@@ -176,15 +176,6 @@ async fn main() {
 }
 
 fn check_previlige() {
-    #[cfg(unix)]
-    match sudo::escalate_if_needed() {
-        Ok(_) => {}
-        Err(_) => {
-            log::error!("please run as root");
-            exit(EPERM);
-        }
-    }
-
     #[cfg(windows)]
     if !is_elevated::is_elevated() {
         log::error!("please run as administrator");

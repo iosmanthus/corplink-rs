@@ -25,8 +25,6 @@ x25519-dalek = { version = "2.0", features = ["static_secrets"] }
 httpdate = "1.0"
 chrono = "0.4"
 cfg-if = "1.0"
-# linux privilege check
-sudo = "0.6"
 # windows privilege check
 is_elevated = "0.1"
 # windows unix socket
