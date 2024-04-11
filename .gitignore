@@ -17,3 +17,7 @@
 # libwg
 libwg/libwg.a
 libwg/libwg.h
+libwg/wireguard-go
+
+# direnv
+/.direnv

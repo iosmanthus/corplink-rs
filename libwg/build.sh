@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-git clone https://github.com/PinkD/wireguard-go
+if [ ! -d wireguard-go ]; then
+    git clone https://github.com/iosmanthus/wireguard-go
+fi
 cd wireguard-go
 make libwg
 mv libwg.* ../
