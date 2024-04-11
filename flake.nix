@@ -26,7 +26,7 @@
 
             buildInputs = with pkgs; [
               go_1_20
-              cargo
+              rustup
               openssl
             ];
 
