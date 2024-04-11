@@ -721,7 +721,11 @@ impl Client {
         let peer_key = wg_info.public_key;
         let public_key = self.conf.public_key.clone().unwrap();
         let private_key = self.conf.private_key.clone().unwrap();
-        let route = wg_info.setting.vpn_route_split;
+        let route = if self.conf.apply_routes {
+            wg_info.setting.vpn_route_split
+        } else {
+            vec![]
+        };
 
         // corplink config
         let wg_conf = WgConf {

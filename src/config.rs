@@ -45,6 +45,12 @@ pub struct Config {
     pub state: Option<State>,
     pub vpn_server_name: Option<String>,
     pub vpn_select_strategy: Option<String>,
+    #[serde(default = "default_true")]
+    pub apply_routes: bool,
+}
+
+fn default_true() -> bool {
+    true
 }
 
 impl fmt::Display for Config {
