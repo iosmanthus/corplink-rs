@@ -721,10 +721,10 @@ impl Client {
         let peer_key = wg_info.public_key;
         let public_key = self.conf.public_key.clone().unwrap();
         let private_key = self.conf.private_key.clone().unwrap();
-        let route = if self.conf.apply_routes {
+        let route = if self.conf.static_routes.is_empty() {
             wg_info.setting.vpn_route_split
         } else {
-            vec![]
+            self.conf.static_routes.clone()
         };
 
         // corplink config
@@ -750,7 +750,6 @@ impl Client {
                 Ok(_) => (),
                 Err(err) => {
                     log::warn!("keep alive error: {}", err);
-                    return;
                 }
             }
             tokio::time::sleep(Duration::from_secs(interval)).await;

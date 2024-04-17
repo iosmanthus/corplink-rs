@@ -149,7 +149,7 @@ async fn main() {
         } => {},
 
         // keep alive
-        _ = c.keep_alive_vpn(&wg_conf, 60) => {
+        _ = c.keep_alive_vpn(&wg_conf, 10) => {
             exit_code = ETIMEDOUT;
         },
 
